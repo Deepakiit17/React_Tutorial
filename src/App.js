@@ -1,19 +1,25 @@
-import { useState } from "react";
+import { Component } from "react";
 import "./App.css";
 
-function App() {
-  const [data, setData] = useState(0);
-  function updateData() {
-    setData(data + 1);
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: 1,
+    };
   }
-  console.warn("_________");
-  return (
-    <div className="App">
-      <h1>state in functional component</h1>
-      <h1>{data}</h1>
-      <button onClick={updateData}>Update Data</button>
-    </div>
-  );
+  apple() {
+    this.setState({ data: this.state.data + 1 });
+  }
+  render() {
+    return (
+      <div className="App">
+        <h1>state in class component</h1>
+        <h1>{this.state.data}</h1>
+        <button onClick={() => this.apple()}>Update Data</button>
+      </div>
+    );
+  }
 }
 
 export default App;
