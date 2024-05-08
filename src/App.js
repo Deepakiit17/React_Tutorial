@@ -1,25 +1,27 @@
-import { Component } from "react";
 import "./App.css";
+import Student from "./Student";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      data: 1,
-    };
-  }
-  apple() {
-    this.setState({ data: this.state.data + 1 });
-  }
-  render() {
-    return (
-      <div className="App">
-        <h1>state in class component</h1>
-        <h1>{this.state.data}</h1>
-        <button onClick={() => this.apple()}>Update Data</button>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <h1>Props in React</h1>
+      <Student
+        name={"anil"}
+        email="anil@test.com"
+        other={{ address: "delhi", mobile: 111 }}
+      />
+      <Student
+        name="peter"
+        email="peter@test.com"
+        other={{ address: "noida", mobile: 222 }}
+      />
+      <Student
+        name="pri"
+        email="pri@test.com"
+        other={{ address: "gurgaon", mobile: 333 }}
+      />
+    </div>
+  );
 }
 
 export default App;
