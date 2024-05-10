@@ -1,12 +1,14 @@
-import React, { useState } from "react";
 import "./App.css";
-import Profile from "./Profile";
+import User from "./Components/User";
 
 function App() {
+  function getData() {
+    alert("hello from app");
+  }
   return (
     <div className="App">
-      <h1>Conditional Rendering</h1>
-      <Profile />
+      <h1>Pass function as Props !</h1>
+      <User data={getData} />
     </div>
   );
 }
