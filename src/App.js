@@ -1,20 +1,19 @@
-import React from "react";
+import { useState } from "react";
 import "./App.css";
+import User1 from "./Components/User1";
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      data: "Anil",
-    };
-  }
-  render() {
-    return (
-      <div className="App">
-        <h1>Hello World {this.state.data}</h1>
-      </div>
-    );
-  }
+function App() {
+  const [name, setName] = useState("Anil");
+
+  return (
+    <div className="App">
+      <h1>Render Method in React</h1>
+      <User1
+      //  name={name}
+      />
+      {/* <button onClick={() => setName("Sidhu")}>Update Name</button> */}
+    </div>
+  );
 }
 
 export default App;
