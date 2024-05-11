@@ -1,16 +1,20 @@
+import React from "react";
 import "./App.css";
-import User from "./Components/User";
 
-function App() {
-  function getData() {
-    alert("hello from app");
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      data: "Anil",
+    };
   }
-  return (
-    <div className="App">
-      <h1>Pass function as Props !</h1>
-      <User data={getData} />
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <h1>Hello World {this.state.data}</h1>
+      </div>
+    );
+  }
 }
 
 export default App;
