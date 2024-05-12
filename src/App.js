@@ -5,20 +5,21 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: "anil",
+      count: 0,
     };
   }
-  componentDidMount() {
-    console.warn("componentDidMount");
+  componentDidUpdate(preProps, preState, snapshot) {
+    console.warn("componentDidUpdate", snapshot);
+    if (this.state.count < 10) {
+      this.setState({ count: this.state.count + 1 });
+    }
   }
   render() {
     console.warn("render");
     return (
       <div className="App">
-        <h1>componentDidMount in React {this.state.name}</h1>
-        <button onClick={() => this.setState({ name: "Sidhu" })}>
-          Update Name
-        </button>
+        <h1>componentDidUpdate in React {this.state.count}</h1>
+        <button onClick={() => this.setState({ count: 1 })}>Update Name</button>
       </div>
     );
   }
