@@ -4,18 +4,19 @@ import "./App.css";
 class App extends React.Component {
   constructor() {
     super();
+    console.warn("constructor");
     this.state = {
       count: 0,
     };
   }
   componentDidUpdate(preProps, preState, snapshot) {
-    console.warn("componentDidUpdate", snapshot);
-    if (this.state.count < 10) {
-      this.setState({ count: this.state.count + 1 });
+    console.warn("componentDidUpdate", preState.count, this.state.count);
+    if (preState.count === this.state.count) {
+      alert("data is already same");
     }
   }
   render() {
-    console.warn("render");
+    // console.warn("render");
     return (
       <div className="App">
         <h1>componentDidUpdate in React {this.state.count}</h1>
