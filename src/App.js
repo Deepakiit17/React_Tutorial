@@ -1,18 +1,16 @@
 import { useState } from "react";
 import "./App.css";
-import { useEffect } from "react";
+import UsEffect from "./Components/UseEffect";
 
 function App() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    console.warn("work 1");
-  });
+  const [data, setData] = useState(10);
+  const [count, setCount] = useState(100);
+
   return (
     <div className="App">
-      <h1>
-        useEffect in React <br /> {count}
-      </h1>
-      <button onClick={() => setCount(count + 1)}>Update Counter</button>
+      <UsEffect count={count} data={data} />
+      <button onClick={() => setCount(count + 1)}>Update Count</button>
+      <button onClick={() => setData(data + 1)}>Update Data</button>
     </div>
   );
 }
