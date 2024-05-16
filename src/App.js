@@ -1,20 +1,30 @@
 import "./App.css";
-import { Button } from "react-bootstrap";
 
 function App() {
+  const students = [
+    { name: "anil", email: "anil@test.com", contact: 111 },
+    { name: "peter", email: "peter@test.com", contact: 222 },
+    { name: "sam", email: "sam@test.com", contact: 333 },
+    { name: "sid", email: "sid@test.com", contact: 444 },
+  ];
   return (
     <div className="App">
-      <h1>Install Bootstrap</h1>
+      <h1>Handle Array with List</h1>
       <br />
-      <Button variant="primary">Primary</Button>{" "}
-      <Button variant="secondary">Secondary</Button>{" "}
-      <Button variant="success">Success</Button>{" "}
-      <Button variant="warning">Warning</Button>{" "}
-      <Button variant="danger">Danger</Button>{" "}
-      <Button variant="info">Info</Button>{" "}
-      <Button variant="light">Light</Button>{" "}
-      <Button variant="dark">Dark</Button>
-      <Button variant="link">Link</Button>
+      <table border="1">
+        <tr>
+          <td>Name</td>
+          <td>Email</td>
+          <td>Contact</td>
+        </tr>
+        {students.map((data) => (
+          <tr>
+            <td>{data.name}</td>
+            <td>{data.email}</td>
+            <td>{data.contact}</td>
+          </tr>
+        ))}
+      </table>
     </div>
   );
 }
