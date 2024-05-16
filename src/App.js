@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1>Install Bootstrap</h1>
+      <br />
       <Button variant="primary">Primary</Button>{" "}
       <Button variant="secondary">Secondary</Button>{" "}
       <Button variant="success">Success</Button>{" "}
