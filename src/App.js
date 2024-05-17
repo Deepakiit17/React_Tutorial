@@ -1,4 +1,5 @@
 import "./App.css";
+import { Table } from "react-bootstrap";
 
 function App() {
   const students = [
@@ -9,22 +10,24 @@ function App() {
   ];
   return (
     <div className="App">
-      <h1>Handle Array with List</h1>
+      <h1>List with Bootstrap Table</h1>
       <br />
-      <table border="1">
-        <tr>
-          <td>Name</td>
-          <td>Email</td>
-          <td>Contact</td>
-        </tr>
-        {students.map((data) => (
+      <Table striped variant="dark">
+        <tbody>
           <tr>
-            <td>{data.name}</td>
-            <td>{data.email}</td>
-            <td>{data.contact}</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Contact</td>
           </tr>
-        ))}
-      </table>
+          {students.map((data, i) => (
+            <tr key={i}>
+              <td>{data.name}</td>
+              <td>{data.email}</td>
+              <td>{data.contact}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </div>
   );
 }
