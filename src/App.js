@@ -1,27 +1,26 @@
+import { useMemo, useState } from "react";
 import "./App.css";
-import React from "react";
-import Counter from "./Counter";
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 1,
-    };
-  }
-  render() {
-    return (
-      <div className="App">
-        <Counter count={this.state.count} />
-        <button
-          onClick={() => {
-            this.setState({ count: this.state.count + 1 });
-          }}
-        >
-          Update Count
-        </button>
-      </div>
-    );
-  }
+function App() {
+  const [count, setCount] = useState(0);
+  const [item, setItem] = useState(10);
+
+  const multiCountMemo = useMemo(
+    function multiCount() {
+      console.warn("multiCount");
+      return count * 5;
+    },
+    [count]
+  );
+  return (
+    <div className="App">
+      <h1>useMemo Hook in React</h1>
+      <h2>Count: {count}</h2>
+      <h2>Item: {item}</h2>
+      <h2>{multiCountMemo}</h2>
+      <button onClick={() => setCount(count + 1)}>Update Count</button>
+      <button onClick={() => setItem(count * 10)}>Update Item</button>
+    </div>
+  );
 }
 
 export default App;
