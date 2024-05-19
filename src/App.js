@@ -1,19 +1,32 @@
 import "./App.css";
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import About from "./About";
-import Nav from "./Nav";
-import PageNotFound from "./404";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import User from "./User";
 function App() {
+  let users = [
+    { id: 1, name: "anil", email: "anil@test.com" },
+    { id: 2, name: "sam", email: "sam@test.com" },
+    { id: 3, name: "peter", email: "peter@test.com" },
+    { id: 4, name: "bruce", email: "bruce@test.com" },
+    { id: 5, name: "tony", email: "tony@test.com" },
+    { id: 13, name: "batman", email: "bat@test.com" },
+  ];
   return (
     <div className="App">
-      <Nav />
-      <Routes>
-        <Route path="/" exact={true} element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
+      <Router>
+        <h1> React Dynamic Routing</h1>
+
+        {users.map((item, i) => (
+          <div key={i}>
+            <Link to={"/user/" + item.id + "/" + item.name}>
+              <h3>{item.name}</h3>
+            </Link>
+          </div>
+        ))}
+        <Routes>
+          <Route path="/user/:id/:name" element={<User />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
